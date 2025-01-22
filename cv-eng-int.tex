@@ -6,16 +6,15 @@
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage[sf]{libertine}
-\usepackage{microtype}
-\usepackage{paracol}
-\usepackage{supertabular}
 \usepackage{titlesec}
-\usepackage[T1]{fontenc}
-\hypersetup{colorlinks, urlcolor=black, linkcolor=black}
+\usepackage[dvipsnames]{xcolor}
+
+% Configurations
+
+\hypersetup{colorlinks, urlcolor=blue, linkcolor=black}
 
 % Geometry
-\geometry{hmargin=1.75cm, vmargin=2.5cm}
-\setlength\columnsep{0.05\textwidth}
+\geometry{hmargin=1cm, vmargin=1.25cm}
 \setlength\parindent{0pt}
 \setlength{\smallskipamount}{8pt plus 3pt minus 3pt}
 \setlength{\medskipamount}{16pt plus 6pt minus 6pt}
@@ -23,188 +22,87 @@
 
 % Style
 \pagestyle{empty}
-\titleformat{\section}{\scshape\LARGE\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{\bigskipamount}{\smallskipamount}
-\newcommand{\heading}[2]{{\sffamily\Huge #1}\\\smallskip{\large{#2}}}
-\newcommand{\entry}[4]{{{\textbf{#1}}} \\ #3 \\ #2 \hfill #4}
-\newcommand{\edentry}[3]{\textbf{#1} \\ #2 | #3}
-\newcommand{\jobentry}[3]{\textbf{#1} \\ #2 \hfill #3}
-\newcommand{\tableentry}[3]{\textsc{#1} & #2\expandafter\ifstrequal\expandafter{#3}{}{\\}{\\[6pt]}}
+\titleformat{\section}{}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{\smallskipamount}{\smallskipamount}
+\newcommand{\heading}[2]{\textbf{\large #1} {\large (he/his)} \hfill github | linkedIn | viniciusernanicarvalho@gmail.com}
+
+\setlist[itemize]{leftmargin=*, topsep=0, noitemsep}
+
+% Macros
+
+%% Decorations
+
+\newcommand{\curiosity}[1]{\colorbox{YellowGreen}{#1}}
+\newcommand{\highlight}[1]{#1}
+
+%% Visual components
+
+\newcommand{\educationentry}[3]{\textbf{#1} at \textit{#2} (#3).}
+\newcommand{\jobentry}[5]{\highlight{\textbf{#3}}\hfill #4\\\textit{#1}\hfill #2. #5\\\smallskip}
+
+\newcommand{\spacer}[0]{\smallskip\hline\smallskip}
+
+% Document
 
 \begin{document}
 
-\vspace*{\fill}
+\textbf{\large \textit{Oi}, call-me \curiosity{Ernani!}} {\large (he/him)} \hfill \href{https://github.com/erneani/}{github} ; \href{https://www.linkedin.com/in/vinicius-ernani/}{linkedIn} ; \href{mailto:viniciusernanicarvalho@gmail.com}{viniciusernanicarvalho@gmail.com}
 
-% Name & headline
-\heading{Vinícius Ernani de Carvalho}{Senior Software Consultant}
+\spacer
 
-Phone: +55 84 99147-9189 | GitHub: \href{www.github.com/erneani}{@erneani} \\
-Email: \href{mailto:viniciusernanicarvalho@gmail.com}{viniciusernanicarvalho@gmail.com} | Linkedin: \href{www.linkedin.com/in/vinicius-ernani}{in/vinicius-ernani}
+I am \textbf{Vinícius Ernani de Carvalho}, a skilled \textbf{problem solver with 7+ years of experience} working with some of the \underline{biggest companies in the world}. I live in \underline{Natal, Brazil}.
 
-\begin{paracol}{2}
+\section{Education}
 
-    \section{About me}
-    
-    Hi, I am Vinícius Ernani! I am a \textbf{Software Consultant} with experience in the \textbf{full cycle} of product development using many languages, tools, and frameworks. \\
-    My focus over the last few years was to create \textbf{digital solutions} that implement \textbf{modern, reactive, and scalable architectures}.
-    
-    \switchcolumn
-    
-    \section{education}
-    
-    \edentry{Federal University of Rio Grande do Norte (UFRN)}{Computer Science}{2019 - 2024}
+\educationentry{Computer Science}{Federal University of Rio Grande do Norte}{from 2019 to 2025} \\
+\educationentry{Informatics}{Federal Institute of Technology of Rio Grande do Norte}{from 2015 to 2019} \\
+\educationentry{Web Development}{Digital Metropolis Institute}{from 2017 to 2021}
 
-    \edentry{Federal Institute of Technology of Rio Grande do Norte (IFRN)}{Software Development}{2015 to 2019}
-    
-    \edentry{Digital Metropolis Institute (IMD)}{Web Development}{2017 to 2021}
-
-\end{paracol}
-
-\section{experience}
-
-\jobentry{Thoughtworks}{Senior Software Consultant}{May/2021 - Now}
+\section{Latest experiences}
 
 \smallskip
 
-Joined Thoughtworks as a Software Consultant to comprehend business needs and deliver impact and value in the form of Software.
+\jobentry{Mercado Libre}{São Paulo, BR}{Senior Software Engineer}{since February 2024}{
+    \begin{itemize}
+        \item Created a new application to process the offers from big sellers, responsible for \textbf{13\% of the annual revenue}.
+        \item Created a system-wide notification component to \textbf{instantly deliver instability problems} to the logged users.
+        \item Architected an authentication pattern that was \textbf{adopted by all the teams} within the same squad.
+        \item Used React, Typescript, and many inner libs for front end. Used Java, Spring, and MySQL for back end.
+    \end{itemize}
+}
 
-\medskip
+\jobentry{Thoughtworks}{Recife, BR}{Software Consultant}{from May/21 to Feb/24}{
+    \begin{itemize}
+        \item Used \textbf{concurrent programming} to improve the equation processing time for a quimical engineering application from \textbf{25s to 5.6s (average)} for a large Oil and Gas company.
+        \item Refactored a legacy spreasheet application, \textbf{reducing the build time from 1min20s to 12s (average)}, improving the development of new features for a big Real Estate company.
+        \item Got mentored by \textbf{Luciano Ramalho} (a brazillian Python specialist) and \textbf{Martin Fowler} to integrate the \textbf{Software Architecture group}, a specialized division of engineers.
+        \item Used Python, Javascript, C\#, and Java as languages. Flask, FastAPI, Django, Node, Express, Kafka, PostgreSQL, Redis, Azure, AWS, React, and many more for full cycle development.
+    \end{itemize}
+}
 
-\begin{paracol}{2}
+\jobentry{Globo.com}{Rio de Janeiro, BR}{Smart TV Software Engineer}{from Nov/20 to May/21}{
+    \begin{itemize}
+        \item Co-authored a robust fallback system that reduced the amount of unavailability errors at peak periods \textbf{from 65K to 8K} for Globoplay, \textbf{LATAM's biggest streaming platform}.
+        \item Implemented a new architecture for state management, \textbf{reducing RAM usage from 1.7GB to 1.3GB} on Tyzen televisions.
+        \item Co-authored a \textbf{Canvas rendering prototype} that allowed the \textbf{same React and Typescript codebase to be used between many TV systems}.
+        \item Used React, Typescript, and CSS-in-JS for front end. Used C++ for chore TV development, Python (with Flask), and GraphQL for back end development.
+    \end{itemize}
+}
 
-    - Provided maintenance and scalability for a legacy and critical financial spreadsheet application for a US big Real Estate company. \\
+\jobentry{ASUS}{Natal, BR}{Software Engineer Researcher}{from Jul/20 to Nov/20}{
+    \begin{itemize}
+        \item Led the front end team to build an internal storage management system \textbf{used in all Asia distribution centers}.
+        \item Co-authored an authentication system used by ASUS on all \textbf{applications within it's distribution centers}.
+        \item Worked with Python, Django, Redis, PostgreSQL and AWS for back end. Used React, Typescript, Mobx and service workers for front end.
+    \end{itemize}
+}
 
-    - Worked on the creation of a globally distributed mathematical application with real-time data for a US big Oil and Gas company. \\
+\section{Interests}
 
-    - Provided technical and business expertise to improve client retention for products in a big Oil and Gas company from the UK.
-
-    \switchcolumn
-
-    Some tools I use to perform this job are: \\
-    - Front End Technologies (Angular and React); \\
-    - Back End Technologies (FastAPI, Express, Spring Framework, and .NET); \\
-    - FaaS (AWS Lambda and Azure Functions); \\
-    - Git; \\
-    - Databases (PostgreSQL and Redis); \\
-    - Message Brokers (Kafka and RabbitMQ); \\
-    - Code Quality services (SonarQube) and
-    - Testing Tools (TDD, RTL, Pytest, Jest).
-
-\end{paracol}
-
-\medskip
-
-\jobentry{Globoplay - Globo.com/Altran}{Front End SmartTV Developer}{Nov/2020 - May/2021}
-
-\smallskip
-
-Joined Globo.com to research and create solutions for the SmartTV environment at LATAM's biggest streaming company, the Globoplay.\\
-
-\begin{paracol}{2}
-
-    - Delivered secure, fast, and lightweight web components for a streaming platform with more than 5 million users, monthly. \\
-    - Researched technologies to improve application usability and responsiveness using React and Canvas.
-    
-    \switchcolumn
-    
-    - Co-implemented a robust fallback system that increased the user screen time during peak hours. \\
-    - Implemented an event-based architecture to get component information on the go. \\
-    - Used GraphQL, React, Typescript, Canvas, and Redux.
-
-\end{paracol}
-
-\medskip
-
-\jobentry{Retail Project - IMD/ASUS/FOXCONN}{Front End Researcher}{Jul/2020 - Nov/2020}
-
-\smallskip
-
-Joined an ASUS project as a Front End Researcher to architect the client side for an internal ASUS application.
-
-\smallskip
-
-\begin{paracol}{2}
-
-    - Architected a React client application using a Design System. \\
-    - Created a Notification System using Service Workers and Local Storage. \\
-    - Was the Front End application leader, managing other researchers.
-    
-    \switchcolumn
-    
-    - Co-authored an internal lib for organizational rules involving Roles, Processes, and Permissions. \\
-    - Worked with MobX, Typescript, React, CSS-in-JS, Python, and Django.
-
-\end{paracol}
-
-\medskip
-
-\jobentry{B2Soft}{Front End Developer}{Mar/2019 - Mar/2020}
-
-\smallskip
-
-At B2Soft, my responsibility was to create user interfaces and usability designs to improve the usage of a delivery application.
-
-\smallskip
-
-\begin{paracol}{2}
-
-    - Created a React Desktop system that listens to a stream of orders and displays them to the user in real time. \\
-    - Worked on a Retail management application with an eye for accessibility for Illiterate customers. \\
-    
-    \switchcolumn
-    
-    - Implemented a React web application that was responsible for managing recent orders. \\
-    - Implemented a Design System to unify the user experience between mobile, desktop, and web applications. \\
-    - Worked with Redux, Typescript, Javascript, Python, Django, Electron, and React Native.
-
-\end{paracol}
-
-\jobentry{Ceará-Mirim City Hall}{System Analyst}{Aug/2018 - Dec/2018}
-
-\smallskip
-
-Joined the Ceará-Mirim City Hall as a System Analyst to create a lightweight web solution to integrate public schools to the internet using small, local configurable servers.
-
-\smallskip
-
-\begin{paracol}{2}
-
-    - Created a lightweight Bootstrap-like library to style the application. \\
-    - Worked on the accessibility team to research solutions for illiterate students to use the internet. \\
-
-    \switchcolumn
-    
-    - Configured a Script to automatically raise local Tomcat Servers in local small servers. \\
-    - Worked with PHP, HTML, CSS, Javascript, Docker, SQL, JQuery, ShellScript, and WordPress.
-
-\end{paracol}
-
-\begin{paracol}{2}
-
-    \section{Languages}
-
-    I have a strong interest in learning new languages and in communication. \\
-    I am able to \textbf{communicate fluently} in \textbf{Portuguese} and \textbf{English}. \\
-    I am able to \textbf{communicate, but not fluently} in \textbf{Spanish}. \\
-    Actually, I am \textbf{learning French}.
-
-    \switchcolumn
-
-    \section{Interests}
-
-    I am really into programming communities, so isn't unusual that I perform some talks on events from my local region. \\
-    I am usually enrolled in a lot of things, like: \\
-
-    - Go programming, \\
-    - Functional Programming communities, \\
-    - Computer Science Degree, \\
-    - Game Development, and \\
-    - Software Architecture communities.
-    
-\end{paracol}
-
-\smallskip
-
-Check also my \href{www.viniciusernani.com/}{personal website} and my \href{www.github.com/erneani}{GitHub profile}.
+\begin{itemize}
+    \item I love to play the tambourine.
+    \item I have a cat that drives me crazy sometimes.
+    \item I really enjoy cooking, and I cook a lot.
+\end{itemize}
 
 \end{document}
